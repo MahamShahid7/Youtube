@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+class BankAccount {
+    private String accountNumber;
+    private String accountTitle;
+    private double balance;
+
+    // Constructor
+    public BankAccount(String accountNumber, String accountTitle, double balance) {
+        this.accountNumber = accountNumber;
+        this.accountTitle = accountTitle;
+        if (balance > 0) {
+            this.balance = balance;
+        } else {
+            System.out.println("Balance must be greater than zero. Setting balance to 0.");
+            this.balance = 0;
+        }
+    }
+
+    // Getter methods
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountTitle() {
+        return accountTitle;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class BankAccountTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter account number: ");
+        String accountNumber = scanner.nextLine();
+
+        System.out.print("Enter account title: ");
+        String accountTitle = scanner.nextLine();
+
+        System.out.print("Enter initial balance (greater than zero): ");
+        double initialBalance = scanner.nextDouble();
+
+        BankAccount myAccount = new BankAccount(accountNumber, accountTitle, initialBalance);
+
+        System.out.println("\nAccount Information:");
+        System.out.println("Account Number: " + myAccount.getAccountNumber());
+        System.out.println("Account Title: " + myAccount.getAccountTitle());
+        System.out.println("Balance: $" + myAccount.getBalance());
+
+        scanner.close();
+    }
+}
