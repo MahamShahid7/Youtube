@@ -1,0 +1,72 @@
+class Cylinder {
+    private double radius;
+    private double height;
+
+    // No-argument constructor
+    public Cylinder() {
+        System.out.println("A no argument constructor");
+    }
+
+    // One-argument constructor (setting radius to default value 1)
+    public Cylinder(double height) {
+        this.height = height;
+        this.radius = 1.0;
+    }
+
+    // Two-argument constructor
+    public Cylinder(double height, double radius) {
+        this.height = height;
+        this.radius = radius;
+    }
+
+    // Setter methods
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    // Getter methods
+    public double getRadius() {
+        return radius;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    // Compute the surface area of the cylinder
+    public double computeArea() {
+        return 2 * Math.PI * radius * (radius + height);
+    }
+
+    // Compute the volume of the cylinder
+    public double computeVolume() {
+        return Math.PI * Math.pow(radius, 2) * height;
+    }
+
+    // Display cylinder information
+    public void displayInfo() {
+        System.out.println("Cylinder Information:");
+        System.out.println("Radius: " + radius);
+        System.out.println("Height: " + height);
+        System.out.println("Surface Area: " + computeArea());
+        System.out.println("Volume: " + computeVolume());
+    }
+}
+
+public class CylinderTest {
+    public static void main(String[] args) {
+        // Create different Cylinder objects
+        Cylinder cylinder1 = new Cylinder();
+        Cylinder cylinder2 = new Cylinder(5.0);
+        Cylinder cylinder3 = new Cylinder(3.0, 2.5);
+
+        // Display information for each cylinder
+        cylinder1.displayInfo();
+        cylinder2.displayInfo();
+        cylinder3.displayInfo();
+    }
+}
